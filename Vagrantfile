@@ -80,7 +80,7 @@ Vagrant.configure("2") do |config|
     apt-get -y -o Acquire::https::Verify-Peer=false install jenkins
     # jenkins user should be able to use docker
     usermod -a -G docker jenkins
-    usermod -a -G docker vagrant
+   # usermod -a -G docker vagrant
     systemctl restart jenkins
     # pull nexus image in advance
     docker pull sonatype/nexus3
