@@ -12,8 +12,8 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
- # config.vm.box = "ubuntu/bionic64"
-  config.vm.box = "https://storage.yandexcloud.net/dtomin-netology/netology_8-2_jenkins_v3_go16.box"
+  config.vm.box = "ubuntu/bionic64"
+# config.vm.box = "https://storage.yandexcloud.net/dtomin-netology/netology_8-2_jenkins_v3_go16.box"  <<- preinstalled vagrant box
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -64,32 +64,32 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
- # config.vm.provision "shell", inline: <<-SHELL
- #   export DEBIAN_FRONTEND=noninteractive
- #   apt-get update
+  config.vm.provision "shell", inline: <<-SHELL
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update
     # install java runtime environment
- #   apt-get install -y default-jre
+    apt-get install -y default-jre
     # install docker
- #   apt-get install -y docker.io
+    apt-get install -y docker.io
     # add nexus docker repo to daemon.json and restart docker
- #   echo -e '{\n  "insecure-registries" : ["ubuntu-bionic:8082"]\n}' > /etc/docker/daemon.json
- #   systemctl restart docker
+    echo -e '{\n  "insecure-registries" : ["ubuntu-bionic:8082"]\n}' > /etc/docker/daemon.json
+    systemctl restart docker
     # add repo and install jenkins
- #   curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
- #   echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]   https://pkg.jenkins.io/debian-stable binary/ | sudo tee   /etc/apt/sources.list.d/jenkins.list > /dev/null
- #   apt-get update -o Acquire::https::Verify-Peer=false
- #   apt-get -y -o Acquire::https::Verify-Peer=false install jenkins
+    curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+    echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]   https://pkg.jenkins.io/debian-stable binary/ | sudo tee   /etc/apt/sources.list.d/jenkins.list > /dev/null
+    apt-get update -o Acquire::https::Verify-Peer=false
+    apt-get -y -o Acquire::https::Verify-Peer=false install jenkins
     # jenkins user should be able to use docker
- #   usermod -a -G docker jenkins
- #   usermod -a -G docker vagrant
- #   systemctl restart jenkins
+    usermod -a -G docker jenkins
+    usermod -a -G docker vagrant
+    systemctl restart jenkins
     # pull nexus image in advance
- #   docker pull sonatype/nexus3
+    docker pull sonatype/nexus3
     #install GO
- #   wget https://go.dev/dl/go1.17.5.linux-amd64.tar.gz
- #   tar -C /usr/local -xzf go1.17.5.linux-amd64.tar.gz
- #   echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/profile
+    wget https://go.dev/dl/go1.17.5.linux-amd64.tar.gz
+    tar -C /usr/local -xzf go1.17.5.linux-amd64.tar.gz
+    echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/profile
     
- #   echo -e "192.168.56.10\tubuntu-bionic\tubuntu-bionic" >> /etc/hosts
- # SHELL
+    echo -e "192.168.56.10\tubuntu-bionic\tubuntu-bionic" >> /etc/hosts
+  SHELL
 end
