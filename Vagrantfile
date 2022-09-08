@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "ubuntu/bionic64"
 # config.vm.box = "https://storage.yandexcloud.net/dtomin-netology/netology_8-2_jenkins_v3_go16.box"  <<- preinstalled vagrant box
-  # Disable automatic box update checking. If you disable this, then
+  ## Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
   # config.vm.box_check_update = false
