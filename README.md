@@ -39,7 +39,7 @@ pipeline {
  agent any
  stages {
   stage('Git') {
-   steps {git 'https://github.com/kozl/netology-devops.git'}
+   steps {git 'https://github.com/netology-code/sdvps-materials.git'}
   }
   stage('Test') {
    steps {
