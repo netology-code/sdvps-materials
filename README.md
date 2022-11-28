@@ -1,5 +1,6 @@
 # Подсказки для выполнения ДЗ
-# Nexus, запуск образа в виртуальной машине Vagrant
+
+## Nexus, запуск образа в виртуальной машине Vagrant
 
 Запуск:
 ```bash
@@ -11,7 +12,7 @@ docker run -d -p 192.168.56.10:8081:8081 -p 192.168.56.10:8082:8082 --name nexus
 docker exec -t nexus bash -c 'cat /nexus-data/admin.password && echo'
 ```
 
-# Jenkins
+## Jenkins
 
 Jenkins url: http://192.168.56.10:8080/  (ссылка при установке Jenkins в ВМ Vagrant)
 Repo для проекта в Jenkins: https://github.com/netology-code/sdvps-materials.git
